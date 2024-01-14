@@ -1,4 +1,12 @@
-import { Component, Host, Prop, h, Element } from '@stencil/core';
+import { Component, Host, Prop, h, Element , State} from '@stencil/core';
+import { Breakpoint, Breakpoints  } from '../../utils/breakpoints';
+import { MediaQueryListenerManager } from '../../utils/media-query-listener-manager'
+
+// Define a type for responsive props
+export type ResponsiveProp<T> = T | { [key in keyof typeof Breakpoints]?: T };
+
+export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse' | '';
+
 
 @Component({
   tag: 'fxy-container',
@@ -6,6 +14,10 @@ import { Component, Host, Prop, h, Element } from '@stencil/core';
   shadow: true,
 })
 export class FlexyContainer {
+  private mediaQueryManager= new MediaQueryListenerManager(Breakpoints);
+
+  @State() isMobile: boolean = false;
+
   @Element() private el: HTMLElement;
 
   /**
@@ -24,7 +36,37 @@ export class FlexyContainer {
    * Sets the flex-direction of the container. 
    * Can be "row", "row-reverse", "column", or "column-reverse".
   */
-  @Prop() fxyDirection: 'row' | 'row-reverse' | 'column' | 'column-reverse' = 'row';
+  @Prop() fxyDirection: FlexDirection = 'row';
+
+  /**
+   * Flex direction for extra-small devices.
+   * Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+   */
+  @Prop() fxyDirectionXs: FlexDirection = '';
+
+  /**
+   * Flex direction for small devices.
+   * Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+   */
+  @Prop() fxyDirectionSm: FlexDirection = '';
+
+  /**
+   * Flex direction for medium devices.
+   * Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+   */
+  @Prop() fxyDirectionMd: FlexDirection = '';
+
+  /**
+   * Flex direction for large devices.
+   * Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+   */
+  @Prop() fxyDirectionLg: FlexDirection = '';
+
+  /**
+   * Flex direction for extra-large devices.
+   * Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+   */
+  @Prop() fxyDirectionXl: FlexDirection = '';
 
   /**
    * Sets spacing between immediate child elements (`fxy-item`).
@@ -72,9 +114,43 @@ export class FlexyContainer {
       });
     }
   }
+
+  private handleBreakpointChange = (breakpoint: Breakpoint, e: MediaQueryListEvent) => {
+    this.isMobile = e.matches;
+    console.log(breakpoint)
+  }
+
+  private setupBreakpointListeners() {
+    if (this.fxyDirectionXs) {
+      this.mediaQueryManager.addListener('xs', (e: MediaQueryListEvent) => this.handleBreakpointChange('xs', e));
+    }
+
+    if (this.fxyDirectionSm) {
+      this.mediaQueryManager.addListener('sm', (e: MediaQueryListEvent) => this.handleBreakpointChange('sm', e));
+    }
+
+    if (this.fxyDirectionMd) {
+      this.mediaQueryManager.addListener('md', (e: MediaQueryListEvent) => this.handleBreakpointChange('md', e));
+    }
+    
+    if (this.fxyDirectionLg) {
+      this.mediaQueryManager.addListener('lg', (e: MediaQueryListEvent) => this.handleBreakpointChange('lg', e));
+    }
+    
+    if (this.fxyDirectionXl) {
+      this.mediaQueryManager.addListener('xl', (e: MediaQueryListEvent) => this.handleBreakpointChange('xl', e));
+    }
+    // ... similarly for md, lg, xl
+  }
   
   componentDidLoad() {
     this.applyGapToItems();
+    // Register listeners only for set breakpoints
+    this.setupBreakpointListeners()
+  }
+
+  disconnectedCallback() {
+    this.mediaQueryManager.removeListeners();
   }
 
   render() {
