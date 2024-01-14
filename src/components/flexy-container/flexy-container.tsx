@@ -10,7 +10,6 @@ export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse' 
 
 @Component({
   tag: 'fxy-container',
-  styleUrl: 'flexy-container.scss',
   shadow: true,
 })
 export class FlexyContainer {

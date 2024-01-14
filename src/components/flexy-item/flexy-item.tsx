@@ -2,7 +2,6 @@ import { Component, Host, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'fxy-item',
-  styleUrl: 'flexy-item.scss',
   shadow: true,
 })
 export class FlexyItem {
