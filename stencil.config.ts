@@ -1,7 +1,12 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'flexy',
+  plugins: [
+    sass()
+  ],
+  // globalStyle: 'src/global/style.scss', // Updated to .scss
   outputTargets: [
     {
       type: 'dist',
@@ -15,10 +20,10 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
+      serviceWorker: null, // Disable service workers
     },
   ],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: true,
   },
 };

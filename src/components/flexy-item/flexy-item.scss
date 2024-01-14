@@ -1,0 +1,44 @@
+// // src/components/flexy-item/flexy-item.scss
+// :host {
+//   display: block;
+//   flex-grow: var(--fxy-item-grow, 0);
+//   flex-shrink: var(--fxy-item-shrink, 1);
+//   flex-basis: var(--fxy-item-basis, auto);
+// //   align-self: var(--fxy-item-align, auto);
+// }
+
+// // :host(.fxy-item--grow) {
+// //   flex-grow: var(--fxy-item-grow, 0);
+// // }
+
+// // :host(.fxy-item--shrink) {
+// //   flex-shrink: var(--fxy-item-shrink, 1);
+// // }
+
+// // :host(.fxy-item--basis) {
+// //   flex-basis: var(--fxy-item-basis, auto);
+// // }
+
+// :host(.fxy-item--align-auto) {
+//   align-self: auto;
+// }
+
+// :host(.fxy-item--align-flex-start) {
+//   align-self: flex-start;
+// }
+
+// :host(.fxy-item--align-flex-end) {
+//   align-self: flex-end;
+// }
+
+// :host(.fxy-item--align-center) {
+//   align-self: center;
+// }
+
+// :host(.fxy-item--align-baseline) {
+//   align-self: baseline;
+// }
+
+// :host(.fxy-item--align-stretch) {
+//   align-self: stretch;
+// }

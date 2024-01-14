@@ -6,56 +6,109 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface FxyContainer {
         /**
-          * The first name
+          * Sets the `place-content` value for aligning content within the container. Accepts a combination of `justify-content` and `align-content` values. Example: "center space-around".
          */
-        "first": string;
+        "fxyAlign": string;
         /**
-          * The last name
+          * Sets the align-items property of the container. Aligns items along the cross axis.
          */
-        "last": string;
+        "fxyAlignItems": 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
         /**
-          * The middle name
+          * Sets the flex-direction of the container.  Can be "row", "row-reverse", "column", or "column-reverse".
          */
-        "middle": string;
+        "fxyDirection": 'row' | 'row-reverse' | 'column' | 'column-reverse';
+        /**
+          * If `true`, the container will fill its parent's height and width.
+         */
+        "fxyFill": boolean;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`). The value is applied as a right margin to all children except the last one.
+         */
+        "fxyGap": string;
+        /**
+          * Sets the flex-wrap property of the container. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrap": 'nowrap' | 'wrap' | 'wrap-reverse' | '';
+    }
+    interface FxyItem {
+        /**
+          * A shorthand for setting flex-grow, flex-shrink, and flex-basis. Accepts standard CSS flex property values.
+         */
+        "fxy": string;
+        /**
+          * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
+         */
+        "fxyAlign": 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLFxyContainerElement extends Components.FxyContainer, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLFxyContainerElement: {
+        prototype: HTMLFxyContainerElement;
+        new (): HTMLFxyContainerElement;
+    };
+    interface HTMLFxyItemElement extends Components.FxyItem, HTMLStencilElement {
+    }
+    var HTMLFxyItemElement: {
+        prototype: HTMLFxyItemElement;
+        new (): HTMLFxyItemElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "fxy-container": HTMLFxyContainerElement;
+        "fxy-item": HTMLFxyItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface FxyContainer {
         /**
-          * The first name
+          * Sets the `place-content` value for aligning content within the container. Accepts a combination of `justify-content` and `align-content` values. Example: "center space-around".
          */
-        "first"?: string;
+        "fxyAlign"?: string;
         /**
-          * The last name
+          * Sets the align-items property of the container. Aligns items along the cross axis.
          */
-        "last"?: string;
+        "fxyAlignItems"?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
         /**
-          * The middle name
+          * Sets the flex-direction of the container.  Can be "row", "row-reverse", "column", or "column-reverse".
          */
-        "middle"?: string;
+        "fxyDirection"?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+        /**
+          * If `true`, the container will fill its parent's height and width.
+         */
+        "fxyFill"?: boolean;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`). The value is applied as a right margin to all children except the last one.
+         */
+        "fxyGap"?: string;
+        /**
+          * Sets the flex-wrap property of the container. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrap"?: 'nowrap' | 'wrap' | 'wrap-reverse' | '';
+    }
+    interface FxyItem {
+        /**
+          * A shorthand for setting flex-grow, flex-shrink, and flex-basis. Accepts standard CSS flex property values.
+         */
+        "fxy"?: string;
+        /**
+          * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
+         */
+        "fxyAlign"?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "fxy-container": FxyContainer;
+        "fxy-item": FxyItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "fxy-container": LocalJSX.FxyContainer & JSXBase.HTMLAttributes<HTMLFxyContainerElement>;
+            "fxy-item": LocalJSX.FxyItem & JSXBase.HTMLAttributes<HTMLFxyItemElement>;
         }
     }
 }

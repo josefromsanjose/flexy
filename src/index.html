@@ -9,6 +9,45 @@
     <script nomodule src="/build/flexy.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <!-- <fxy-container fxy-align="space-between none" style="width: 500px; height: 300px; background: #f5f5f5;">
+      <fxy-item fxy-align="start">Item one</fxy-item>
+      <fxy-item fxy-align="center" >Item two</fxy-item>
+      <fxy-item fxy-align="end">Item three</fxy-item>
+      <fxy-item fxy-align="auto">Item four</fxy-item>
+    </fxy-container> -->
+
+    <fxy-container>
+      <fxy-item>Item 1</fxy-item>
+      <fxy-item>Item 2</fxy-item>
+      <fxy-item>Item 3</fxy-item>
+    </fxy-container>
+
+    <!-- <fxy-container flex-direction="column">
+      <fxy-item flex-grow="2">Item 1 (Larger)</fxy-item>
+      <fxy-item>Item 2</fxy-item>
+      <fxy-item>Item 3</fxy-item>
+    </fxy-container>
+     -->
+     <style>
+   
+      fxy-item:nth-child(odd) {
+        background-color: #ddd;
+      }
+      fxy-item:nth-child(even) {
+        background-color: #d2d2d2;
+      }
+     </style>
+<br>
+    <div style="height: 200px; background-color: #f9f9f9;">
+      <fxy-container fxy-gap="20px" fxy-fill="true" style=" background: #f5f5f5;" >
+        <fxy-item fxy="70px">Item 1</fxy-item>
+        <fxy-item>Item 2</fxy-item>
+        <fxy-item>Item 3</fxy-item>
+        <fxy-item>Item 4</fxy-item>
+        <fxy-item>Item 5</fxy-item>
+      </fxy-container>
+    </div>
+    
+    
   </body>
 </html>
