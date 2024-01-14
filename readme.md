@@ -10,7 +10,10 @@ Flexy is a lightweight library for building flexible and responsive web layouts 
 - **Flexy Item (`fxy-item`)**: A component that serves as a flex item within a Flexy Container, providing additional control over individual item layout.
 - **Simple and Intuitive API**: Offers an intuitive API for setting Flexbox properties, making it simple to create and manage layouts.
 - **Customizable**: Components can be easily styled with standard CSS to fit the design requirements.
-  
+- 
+## Features of MVP Version
+Working on it
+
 ## Usage
 
 After installation, you can incorporate Flexy components into your web application. Below are some examples to demonstrate the usage:
