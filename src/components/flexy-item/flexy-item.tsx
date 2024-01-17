@@ -1,15 +1,53 @@
-import { Component, Host, Prop, h } from '@stencil/core';
+import { Component, Host, Prop, h, Element } from '@stencil/core';
+import {  StyleManager } from '../../utils/style-manager';
+import { mediaQueryListenerManager } from '../../utils/media-query-listener-manager';
+
+
+const RESPONSIVE_PROPS: string[] = ['fxy', 'fxyAlign'];
 
 @Component({
   tag: 'fxy-item',
   shadow: true,
 })
 export class FlexyItem {
+  
+  private mediaQueryManager = mediaQueryListenerManager; 
+  private styleManager = StyleManager;
+  
+  @Element() private el: HTMLElement;
+
   /**
    * A shorthand for setting flex-grow, flex-shrink, and flex-basis.
-   * Accepts standard CSS flex property values.
+   * Accepts standard CSS flex property values or a valid unit of measurement applied as a width and flex-basis.
    */
   @Prop() fxy: string = '';
+
+  /**
+   * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for extra small devices.
+  */
+  @Prop() fxyXs: string = '';
+
+  /**
+   * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for small devices.
+  */
+  @Prop() fxySm: string = '';
+
+  /**
+   * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for medium devices.
+  */
+  @Prop() fxyMd: string = '';
+  
+
+  /**
+   * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for large devices.
+  */
+  @Prop() fxyLg: string = '';
+  
+
+  /**
+   * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for extra large devices.
+  */
+  @Prop() fxyXl: string = '';
 
   /**
    * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
@@ -65,6 +103,16 @@ export class FlexyItem {
       maxWidth: '',
       minWidth: ''
     };
+  }
+
+  componentWillLoad() {
+    let results = this.styleManager.identifyBreakpointValues(RESPONSIVE_PROPS, this.el);
+
+    if(Object.keys(results).length) {
+      this.mediaQueryManager.mediaQueryChanges.subscribe((event: MediaQueryListEvent) => {
+        this.styleManager.applyStyles(this.el, event);
+      });
+    }
   }
 
   render() {

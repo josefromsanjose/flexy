@@ -9,3 +9,7 @@ export const Breakpoints = {
 
 // Define a type for the keys of Breakpoints
 export type Breakpoint = keyof typeof Breakpoints;
+
+export type PropBreakpointModifiers = 'Xs' | 'Sm' | 'Md' | 'Lg' | 'Xl';
+
+export const PROP_RESPONSIVE_MODIFIERS: PropBreakpointModifiers[] = ['Xs', 'Sm', 'Md', 'Lg', 'Xl'];

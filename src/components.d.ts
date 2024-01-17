@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FlexDirection, FlexWrap, ResponsiveProp } from "./components/flexy-container/flexy-container";
+export { FlexDirection, FlexWrap, ResponsiveProp } from "./components/flexy-container/flexy-container";
 export namespace Components {
     interface FxyContainer {
         /**
@@ -12,35 +14,151 @@ export namespace Components {
          */
         "fxyAlign": string;
         /**
-          * Sets the align-items property of the container. Aligns items along the cross axis.
+          * Sets the `place-content` value for aligning content within the containerfor large devices
          */
-        "fxyAlignItems": 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+        "fxyAlignLg": string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor medium devices
+         */
+        "fxyAlignMd": string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor small devices
+         */
+        "fxyAlignSm": string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor extra large devices
+         */
+        "fxyAlignXl": string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor extra-small devices
+         */
+        "fxyAlignXs": string;
         /**
           * Sets the flex-direction of the container.  Can be "row", "row-reverse", "column", or "column-reverse".
          */
-        "fxyDirection": 'row' | 'row-reverse' | 'column' | 'column-reverse';
+        "fxyDirection": ResponsiveProp<FlexDirection>;
+        /**
+          * Flex direction for large devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionLg": FlexDirection;
+        /**
+          * Flex direction for medium devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionMd": FlexDirection;
+        /**
+          * Flex direction for small devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionSm": FlexDirection;
+        /**
+          * Flex direction for extra-large devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionXl": FlexDirection;
+        /**
+          * Flex direction for extra-small devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionXs": FlexDirection;
         /**
           * If `true`, the container will fill its parent's height and width.
          */
         "fxyFill": boolean;
         /**
+          * If `true`, the container will fill its parent's height and width on large devices.
+         */
+        "fxyFillLg": boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on medium devices.
+         */
+        "fxyFillMd": boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on small devices.
+         */
+        "fxyFillSm": boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on extra large devices.
+         */
+        "fxyFillXl": boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on extra small devices.
+         */
+        "fxyFillXs": boolean;
+        /**
           * Sets spacing between immediate child elements (`fxy-item`). The value is applied as a right margin to all children except the last one.
          */
         "fxyGap": string;
         /**
-          * Sets the flex-wrap property of the container. Can be "nowrap", "wrap", or "wrap-reverse".
+          * Sets spacing between immediate child elements (`fxy-item`) for large devices..
          */
-        "fxyWrap": 'nowrap' | 'wrap' | 'wrap-reverse' | '';
+        "fxyGapLg": string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for medium devices..
+         */
+        "fxyGapMd": string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for small devices..
+         */
+        "fxyGapSm": string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for extra large devices..
+         */
+        "fxyGapXl": string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for extra small devices..
+         */
+        "fxyGapXs": string;
+        /**
+          * Sets the flex-wrap property of the container.
+         */
+        "fxyWrap": FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for large devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapLg": FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for medium devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapMd": FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for small devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapSm": FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for extra large devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapXl": FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for extra small devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapXs": FlexWrap;
     }
     interface FxyItem {
         /**
-          * A shorthand for setting flex-grow, flex-shrink, and flex-basis. Accepts standard CSS flex property values.
+          * A shorthand for setting flex-grow, flex-shrink, and flex-basis. Accepts standard CSS flex property values or a valid unit of measurement applied as a width and flex-basis.
          */
         "fxy": string;
         /**
           * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
          */
         "fxyAlign": 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for large devices.
+         */
+        "fxyLg": string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for medium devices.
+         */
+        "fxyMd": string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for small devices.
+         */
+        "fxySm": string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for extra large devices.
+         */
+        "fxyXl": string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for extra small devices.
+         */
+        "fxyXs": string;
     }
 }
 declare global {
@@ -68,35 +186,151 @@ declare namespace LocalJSX {
          */
         "fxyAlign"?: string;
         /**
-          * Sets the align-items property of the container. Aligns items along the cross axis.
+          * Sets the `place-content` value for aligning content within the containerfor large devices
          */
-        "fxyAlignItems"?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+        "fxyAlignLg"?: string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor medium devices
+         */
+        "fxyAlignMd"?: string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor small devices
+         */
+        "fxyAlignSm"?: string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor extra large devices
+         */
+        "fxyAlignXl"?: string;
+        /**
+          * Sets the `place-content` value for aligning content within the containerfor extra-small devices
+         */
+        "fxyAlignXs"?: string;
         /**
           * Sets the flex-direction of the container.  Can be "row", "row-reverse", "column", or "column-reverse".
          */
-        "fxyDirection"?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+        "fxyDirection"?: ResponsiveProp<FlexDirection>;
+        /**
+          * Flex direction for large devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionLg"?: FlexDirection;
+        /**
+          * Flex direction for medium devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionMd"?: FlexDirection;
+        /**
+          * Flex direction for small devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionSm"?: FlexDirection;
+        /**
+          * Flex direction for extra-large devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionXl"?: FlexDirection;
+        /**
+          * Flex direction for extra-small devices. Accepts 'row', 'row-reverse', 'column', 'column-reverse'.
+         */
+        "fxyDirectionXs"?: FlexDirection;
         /**
           * If `true`, the container will fill its parent's height and width.
          */
         "fxyFill"?: boolean;
         /**
+          * If `true`, the container will fill its parent's height and width on large devices.
+         */
+        "fxyFillLg"?: boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on medium devices.
+         */
+        "fxyFillMd"?: boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on small devices.
+         */
+        "fxyFillSm"?: boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on extra large devices.
+         */
+        "fxyFillXl"?: boolean;
+        /**
+          * If `true`, the container will fill its parent's height and width on extra small devices.
+         */
+        "fxyFillXs"?: boolean;
+        /**
           * Sets spacing between immediate child elements (`fxy-item`). The value is applied as a right margin to all children except the last one.
          */
         "fxyGap"?: string;
         /**
-          * Sets the flex-wrap property of the container. Can be "nowrap", "wrap", or "wrap-reverse".
+          * Sets spacing between immediate child elements (`fxy-item`) for large devices..
          */
-        "fxyWrap"?: 'nowrap' | 'wrap' | 'wrap-reverse' | '';
+        "fxyGapLg"?: string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for medium devices..
+         */
+        "fxyGapMd"?: string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for small devices..
+         */
+        "fxyGapSm"?: string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for extra large devices..
+         */
+        "fxyGapXl"?: string;
+        /**
+          * Sets spacing between immediate child elements (`fxy-item`) for extra small devices..
+         */
+        "fxyGapXs"?: string;
+        /**
+          * Sets the flex-wrap property of the container.
+         */
+        "fxyWrap"?: FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for large devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapLg"?: FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for medium devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapMd"?: FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for small devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapSm"?: FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for extra large devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapXl"?: FlexWrap;
+        /**
+          * Sets the flex-wrap property of the container for extra small devices.. Can be "nowrap", "wrap", or "wrap-reverse".
+         */
+        "fxyWrapXs"?: FlexWrap;
     }
     interface FxyItem {
         /**
-          * A shorthand for setting flex-grow, flex-shrink, and flex-basis. Accepts standard CSS flex property values.
+          * A shorthand for setting flex-grow, flex-shrink, and flex-basis. Accepts standard CSS flex property values or a valid unit of measurement applied as a width and flex-basis.
          */
         "fxy"?: string;
         /**
           * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
          */
         "fxyAlign"?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for large devices.
+         */
+        "fxyLg"?: string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for medium devices.
+         */
+        "fxyMd"?: string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for small devices.
+         */
+        "fxySm"?: string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for extra large devices.
+         */
+        "fxyXl"?: string;
+        /**
+          * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for extra small devices.
+         */
+        "fxyXs"?: string;
     }
     interface IntrinsicElements {
         "fxy-container": FxyContainer;
