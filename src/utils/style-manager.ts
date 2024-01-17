@@ -33,7 +33,8 @@ class _StyleManager {
         }
 
         Object.keys(el).forEach((prop) => {
-            //if there is no breakpoint for the media query, and the fallback prop is not set to the 
+            //if there is no breakpoint for the media query, and the fallback prop is not set to the fallback value
+            //set the prop to the fallback value. 
             if (!el[prop][bp] && element[prop] !== el[prop]['fallbackValue']) {
                 element[prop] = el[prop]['fallbackValue'];
             } else if(el[prop][bp] && element[prop] !== el[prop][bp]) {
