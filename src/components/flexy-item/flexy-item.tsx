@@ -2,7 +2,7 @@ import { Component, Host, Prop, h, Element } from '@stencil/core';
 import {  StyleManager } from '../../utils/style-manager';
 import { mediaQueryListenerManager } from '../../utils/media-query-listener-manager';
 
-
+export type FlexAlign = 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
 const RESPONSIVE_PROPS: string[] = ['fxy', 'fxyAlign'];
 
 @Component({
@@ -52,7 +52,32 @@ export class FlexyItem {
   /**
    * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
    */
-  @Prop() fxyAlign: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '' = '';
+  @Prop() fxyAlign: FlexAlign = '';
+
+  /**
+   * A shorthand modifier of for fxyAlign that sets the flex child element alignment on extra small devices.
+   */
+  @Prop() fxyAlignXs: FlexAlign = '';
+
+  /**
+   * A shorthand modifier of for fxyAlign that sets the flex child element alignment on small devices.
+   */
+  @Prop() fxyAlignSm: FlexAlign = '';
+
+  /**
+   * A shorthand modifier of for fxyAlign that sets the flex child element alignment on medium devices.
+   */
+  @Prop() fxyAlignMd: FlexAlign = '';
+
+  /**
+   * A shorthand modifier of for fxyAlign that sets the flex child element alignment on large devices.
+   */
+  @Prop() fxyAlignLg: FlexAlign = '';
+
+  /**
+   * A shorthand modifier of for fxyAlign that sets the flex child element alignment on extra large devices.
+   */
+  @Prop() fxyAlignXl: FlexAlign = '';
 
   /**
    * Parses the `fxy` property value to set appropriate flex and sizing styles.
