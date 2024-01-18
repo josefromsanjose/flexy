@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlexDirection, FlexWrap, ResponsiveProp } from "./components/flexy-container/flexy-container";
+import { FlexAlign } from "./components/flexy-item/flexy-item";
 export { FlexDirection, FlexWrap, ResponsiveProp } from "./components/flexy-container/flexy-container";
+export { FlexAlign } from "./components/flexy-item/flexy-item";
 export namespace Components {
     interface FxyContainer {
         /**
@@ -138,7 +140,27 @@ export namespace Components {
         /**
           * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
          */
-        "fxyAlign": 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
+        "fxyAlign": FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on large devices.
+         */
+        "fxyAlignLg": FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on medium devices.
+         */
+        "fxyAlignMd": FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on small devices.
+         */
+        "fxyAlignSm": FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on extra large devices.
+         */
+        "fxyAlignXl": FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on extra small devices.
+         */
+        "fxyAlignXs": FlexAlign;
         /**
           * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for large devices.
          */
@@ -310,7 +332,27 @@ declare namespace LocalJSX {
         /**
           * Align self. Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
          */
-        "fxyAlign"?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' | '';
+        "fxyAlign"?: FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on large devices.
+         */
+        "fxyAlignLg"?: FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on medium devices.
+         */
+        "fxyAlignMd"?: FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on small devices.
+         */
+        "fxyAlignSm"?: FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on extra large devices.
+         */
+        "fxyAlignXl"?: FlexAlign;
+        /**
+          * A shorthand modifier of for fxyAlign that sets the flex child element alignment on extra small devices.
+         */
+        "fxyAlignXs"?: FlexAlign;
         /**
           * A shorthand modifier of fxy for setting flex-grow, flex-shrink, and flex-basis for large devices.
          */
